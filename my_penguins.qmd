@@ -1,0 +1,33 @@
+---
+title: "my_penguins"
+author: "Nitin Janath"
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+```{r}
+
+#| warning: false
+#| warning: false
+
+library(tidyverse)
+library(palmerpenguins)
+
+
+```
+
+```{r}
+penguins |>
+  group_by(species) |>
+  summarise(
+    average_bill_length = mean(bill_length_mm, na.rm = TRUE)
+  )
+```
+
+```{r}
+ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm))+
+  geom_point()
+
+```
